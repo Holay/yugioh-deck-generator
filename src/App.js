@@ -1,24 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import { Header, Deck } from './components'
 import './App.css';
+import { API_BASE_URL } from './config.js'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
+
+  useEffect(() => {
+
+    // fetch(API_BASE_URL).then(response => response.json())
+    //   .then(data => console.log(data))
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router >
+        <Header />
+        <Deck />
+        <div className="outlet">
+
+          <Switch>
+            <Route path="structure">
+
+            </Route>
+            <Route path="/">
+
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     </div>
   );
 }

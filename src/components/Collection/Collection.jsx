@@ -7,9 +7,21 @@ function Collection({cards}) {
     const [filteredCards, setFilteredCards] = useState([])
 
     const filterCards = (searchString, attributes) => {
+        const filteredCards = searchString.length>=3? cards.filter(card => {
+            let attributeMatch = true;
+            if (attributes.length>0){
+                if(card.type.toLowerCase().includes('monster')){
+                    attributeMatch = attributes.includes(card.attribute) 
+                } else {
+                    attributeMatch = attributes.includes(card.type.split(' ')[0].toUpperCase())
+                }
+            }
 
-        const filteredCards = searchString.length>3? cards.filter(card => card.name.toLowerCase().includes(searchString.toLowerCase())
-        ):[];
+            
+            
+            return card.name.toLowerCase().includes(searchString.toLowerCase()) && attributeMatch
+        
+        }):[];
         setFilteredCards(filteredCards)
     }
 

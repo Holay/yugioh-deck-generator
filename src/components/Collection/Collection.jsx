@@ -7,9 +7,9 @@ function Collection({cards}) {
     const [filteredCards, setFilteredCards] = useState([])
 
     const filterCards = (searchString, attributes) => {
-        const filteredCards = cards.filter(card => card.name.toLowerCase().includes(searchString.toLowerCase())
-        )
-        console.log(filteredCards)
+
+        const filteredCards = searchString.length>3? cards.filter(card => card.name.toLowerCase().includes(searchString.toLowerCase())
+        ):[];
         setFilteredCards(filteredCards)
     }
 

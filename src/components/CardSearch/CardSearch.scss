@@ -1,0 +1,29 @@
+.attribute-filter{
+    border-radius: 50%;
+    border: 3px black solid;
+    max-height: 30px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.search-container{
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    background: rgba(53, 69, 77, 0.68);
+    height: 45px;
+    padding: 5px 0;
+    align-items: center;
+}
+
+#search-input{
+    border-radius: 10px;
+    height: 40px;
+    font-size: 20px;
+    padding: 0 10px;
+    background: rgba(38, 50, 55, 0.68);
+    border-color: rgba(38, 50, 55, 0.68);
+    color: white;
+    outline: none;
+    box-shadow:inset 0 0 10px #000;
+}

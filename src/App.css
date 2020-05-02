@@ -1,13 +1,17 @@
+html{
+  overflow: hidden;
+}
+
 .App {
   text-align: center;
   background: url('https://wallpapers.etherealgames.com/wp-content/uploads/sites/6/2018/01/Yu-Gi-Oh-Duel-Links-Wallpaper-006-Yami-Yugi-Dark-Magician.jpg');
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 50px 50px 50px 50px;
+  grid-template-columns: repeat(10,minmax(10vw, 10vw));
   grid-template-rows: 60px auto;
   grid-template-areas: 
-    "header header header header header header header header header"
-    "outlet outlet outlet outlet outlet outlet outlet outlet deck"
+    "header header header header header header header header header header "
+    "outlet outlet outlet outlet outlet outlet outlet outlet deck deck "
     ;
     font-size: 20px;
   /* flex-direction: column;

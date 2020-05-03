@@ -21,6 +21,10 @@ function header() {
                     Structure Decks
             </div>
             </Link>
+            
+            </div>
+            <div className="made-by-me">
+                Yugioh deck maker for TTS by Mateo Penagos (<a href="https://steamcommunity.com/id/holay/" target="_blank" rel="noopener noreferrer">holay</a>)
             </div>
         </div>
     )

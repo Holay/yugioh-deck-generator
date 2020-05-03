@@ -9,9 +9,18 @@ import TRAP from '../../attributes/TRAP.png';
 import SPELL from '../../attributes/SPELL.png';
 import './Chip.scss'
 
+const attributes = {
+    DARK,
+    LIGHT,
+    WATER,
+    FIRE,
+    WIND,
+    EARTH
+}
+
 function Chip({card}){
     let color
-    console.log(card.type)
+    let attribute
     switch(card.type){
         case 'Effect Monster':
             color = 'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(193,97,50,1) 100%)';
@@ -43,16 +52,27 @@ function Chip({card}){
         case 'Pendulum Effect Fusion Monster':
             color = "linear-gradient(0deg, rgb(3, 139, 117) 0%, rgb(141, 77, 152) 100%)"
             break;
+        case 'Pendulum Normal Monster':
+            color = "linear-gradient(0deg, rgb(3, 139, 117) 0%, rgba(210,155,74,1) 100%)"
+            break;
         default:
             color ="linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(193,97,50,1) 100%)"
     }
+    if(!card.attribute){
+        attribute = card.type==="Spell Card"? SPELL:TRAP;
+    } else{
+        attribute = attributes[card.attribute]
+    }
+    
+
+
     return(
         <div className="chip" style={{background: color}}>
             <div className="chip-count">
                 x3
             </div>
             <div className="chip-name">{card.name}</div>
-            <img className="chip-attribute" src={EARTH} alt="attribute" />
+            <img className="chip-attribute" src={attribute} alt="attribute" />
         </div>
     )
 }

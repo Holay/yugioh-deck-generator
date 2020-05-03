@@ -1,8 +1,8 @@
 import React, { createContext, Component } from 'react';
 
 export const DeckListContext = createContext();
-// const extraTypes = ['Synchro Monster', 'XYZ Monster', 'Fusion Monster', 'Link Monster', 'Ritual Monster']
-const extraTypes = []
+const extraTypes = ['Synchro Monster', 'XYZ Monster', 'Fusion Monster', 'Link Monster', 'Ritual Monster']
+// const extraTypes = []
 export default class DeckListContextProvider extends Component {
     state = {
         deckList: [],

@@ -1,16 +1,17 @@
 import React, { useState, useContext } from 'react'
 import { DeckListContext } from "../../contexts/DeckListContext"
 import { Chip } from '../index';
-import './Deck.css'
+import './Deck.scss'
 
 function Deck() {
-    const [deckName, setDeckName] = useState('')
+    const [deckName, setDeckName] = useState()
     const [tab, setTab] = useState('deck');
-    const { reducedDeckList, reducedExtraDeckList, removeCard } = useContext(DeckListContext)
+    const { deckList, reducedDeckList, reducedExtraDeckList, removeCard, downloadDecks } = useContext(DeckListContext)
     const onChange = (event) =>{
         setDeckName(event.target.value)
     }
     const chips = tab === 'deck' ? reducedDeckList.map(card => <Chip removeCard={removeCard} card={card} key={card.name} type="deck"/>) : reducedExtraDeckList.map(card => <Chip removeCard={removeCard} type="extraDeck" card={card} key={card.name} />);
+    const ready = deckList.length >= 40;
     return(
     <div className='deck-list'>
         <div className="deck-name-container">
@@ -23,6 +24,7 @@ function Deck() {
         <div className="chip-container">
             {chips}
         </div>
+            <button onClick={()=>{downloadDecks(deckName)}} disabled={!ready} className={`btn draw-border ${ready? 'ready':''}`} id="export-button">Export to TTS</button>
     </div>)
 }
 

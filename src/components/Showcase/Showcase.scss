@@ -3,7 +3,27 @@
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 10px;
     overflow-y: auto;
-    max-height: 87vh;
+    max-height: 86vh;
     padding: 20px;
 
+}
+
+.showcase-container::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: rgba(60, 80, 88, 0.88);
+}
+
+.showcase-container::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: rgba(60, 80, 88, 0.88);
+}
+
+.showcase-container::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: rgba(38, 50, 55, 0.88);
 }

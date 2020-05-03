@@ -1,4 +1,5 @@
 import React, { createContext, Component } from 'react';
+import { formatForTTS } from '../TTSfunctions'
 
 export const DeckListContext = createContext();
 const extraTypes = ['Synchro Monster', 'XYZ Monster', 'Fusion Monster', 'Link Monster', 'Ritual Monster']
@@ -28,7 +29,7 @@ export default class DeckListContextProvider extends Component {
         if (!r.has(k)) r.set(k, { ...e, count: 1 })
         else r.get(k).count++
         return r;
-    }, new Map).values()]
+    }, new Map()).values()]
 
     return result;
     }
@@ -65,9 +66,16 @@ export default class DeckListContextProvider extends Component {
         this.setState({ deckList, extraDeckList, reducedDeckList, reducedExtraDeckList });
 
     }
+
+    downloadDecks(name = 'Yugioh Deck'){
+        console.log(name)
+        const { deckList, extraDeckList } = this.state
+        formatForTTS([deckList, extraDeckList], name)
+    }
+
     render(){
         return(
-            <DeckListContext.Provider value={{...this.state, addCard: this.addCard.bind(this), removeCard: this.removeCard.bind(this)}}>
+            <DeckListContext.Provider value={{...this.state, addCard: this.addCard.bind(this), removeCard: this.removeCard.bind(this), downloadDecks: this.downloadDecks.bind(this)}}>
                 {this.props.children}
             </DeckListContext.Provider>
         )

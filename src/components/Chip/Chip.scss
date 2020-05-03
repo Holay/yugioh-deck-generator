@@ -7,9 +7,15 @@
     transition: all 0.1s;
     position: relative;
     left: 0;
+    height: 0;
+    opacity: 0;
     &:hover{
         position: relative;
         left: 5px;
+    }
+    &.show{
+    height: auto;
+    opacity: 1;
     }
 }
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import DARK from '../../attributes/DARK.png';
 import LIGHT from '../../attributes/LIGHT.png';
 import WATER from '../../attributes/WATER.png';
@@ -18,7 +18,8 @@ const attributes = {
     EARTH
 }
 
-function Chip({card}){
+function Chip({ card, removeCard, type}){
+    const [ show, setShow ] = useState('')
     let color
     let attribute
     switch(card.type){
@@ -55,6 +56,9 @@ function Chip({card}){
         case 'Pendulum Normal Monster':
             color = "linear-gradient(0deg, rgb(3, 139, 117) 0%, rgba(210,155,74,1) 100%)"
             break;
+        case 'Synchro Pendulum Effect Monster':
+            color = "linear-gradient(0deg, rgb(3, 139, 117) 0%, rgb(225, 221, 218) 100%)"
+            break;
         default:
             color ="linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(193,97,50,1) 100%)"
     }
@@ -64,12 +68,17 @@ function Chip({card}){
         attribute = attributes[card.attribute]
     }
     
-
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShow('show');
+        }, 0);
+        return () => clearTimeout(timer);
+    }, []);
 
     return(
-        <div className="chip" style={{background: color}}>
+        <div className={`chip ${show}`} style={{background: color}} onClick={()=>removeCard(card, type)}>
             <div className="chip-count">
-                x3
+                {card.count}
             </div>
             <div className="chip-name">{card.name}</div>
             <img className="chip-attribute" src={attribute} alt="attribute" />

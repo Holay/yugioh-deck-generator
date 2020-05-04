@@ -16,11 +16,11 @@ function header() {
                     Card Search
             </div>
             </Link>
-            <Link className="router-link" to="/structure">
+            {/* <Link className="router-link" to="/structure">
                 <div className={`link-container ${location.pathname.includes('structure') ? 'active' : ''}`}>
                     Structure Decks
             </div>
-            </Link>
+            </Link> */}
             
             </div>
             <div className="made-by-me">

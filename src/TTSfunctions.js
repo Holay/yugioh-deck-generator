@@ -116,7 +116,7 @@ export function generateTTSPacks(packs) {
 
     })
 
-    } else if (pack.length === 1){ 
+    } else { 
             return {
                 Name: "CardCustom",
                 Transform: {

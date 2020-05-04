@@ -69,7 +69,8 @@ export default class DeckListContextProvider extends Component {
 
     downloadDecks(name = 'Yugioh Deck'){
         const { deckList, extraDeckList } = this.state
-        formatForTTS([deckList, extraDeckList], name)
+        const deckPack = extraDeckList.length > 0 ? [deckList, extraDeckList] : [deckList]
+        formatForTTS(deckPack, name)
     }
 
     render(){

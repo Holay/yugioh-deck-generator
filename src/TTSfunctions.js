@@ -22,7 +22,9 @@ export function formatForTTS(packs, name) {
 }
 
 export function generateTTSPacks(packs) {
-    const TTSPacks = packs.map((pack, deckIndex) => ({
+    const TTSPacks = packs.map((pack, deckIndex) => {
+        if(pack.length>1){
+        return ({
         Name: "Deck",
         Transform: {
             posX: -4 * calculatePosition(deckIndex, 'X'),
@@ -112,13 +114,55 @@ export function generateTTSPacks(packs) {
         }
         )
 
-    }))
+    })
+
+    } else{ 
+            return {
+                Name: "CardCustom",
+                Transform: {
+                    posX: -4 * calculatePosition(deckIndex, 'X'),
+                    posY: 1,
+                    posZ: -4 * calculatePosition(deckIndex, "Z"),
+                    rotX: 0,
+                    rotY: 180,
+                    rotZ: 180,
+                    scaleX: 1,
+                    scaleY: 1,
+                    scaleZ: 1,
+                },
+                Nickname: pack[0].name,
+                Description: pack[0].desc,
+                GMNotes: "",
+                ColorDiffuse: {
+                    r: 0.713235259,
+                    g: 0.713235259,
+                    b: 0.713235259
+                },
+                Locked: false,
+                Grid: true,
+                Snap: true,
+                IgnoreFoW: false,
+                Autoraise: true,
+                Sticky: true,
+                CardID: Number(`${1 + deckIndex}000`),
+                Tooltip: true,
+                GridProjection: false,
+                HideWhenFaceDown: true,
+                Hands: false,
+                SidewaysCard: false,
+                CustomDeck: generateCustomDeckObject(deckIndex, pack),
+                XmlUI: "",
+                LuaScript: "",
+                LuaScriptState: "",
+            }
+    }
+
+})
         return TTSPacks
 }
 
 export function generateCustomDeckObject(deckIndex, pack) {
     const result = {}
-
     pack.forEach((card, cardIndex) => {
         result[`${1 + deckIndex}${cardIndex}`] = {
             FaceURL: card.card_images[0].image_url,

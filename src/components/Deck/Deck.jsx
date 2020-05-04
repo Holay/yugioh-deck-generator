@@ -6,7 +6,7 @@ import './Deck.scss'
 function Deck() {
     const [deckName, setDeckName] = useState()
     const [tab, setTab] = useState('deck');
-    const { deckList, reducedDeckList, reducedExtraDeckList, removeCard, downloadDecks } = useContext(DeckListContext)
+    const { deckList, extraDeckList, reducedDeckList, reducedExtraDeckList, removeCard, downloadDecks } = useContext(DeckListContext)
     const onChange = (event) =>{
         setDeckName(event.target.value)
     }
@@ -18,8 +18,8 @@ function Deck() {
             <input type="text" name="deck-name" className="deck-name" placeholder="Deck Name" onChange={onChange}/>
         </div>
         <div className="tabs">
-            <button className={`${tab === 'deck'?'active':''}`} onClick={() => setTab('deck')}>Deck</button>
-            <button className={`${tab === 'extraDeck' ? 'active' : ''}`} onClick={() => setTab('extraDeck')}>Extra Deck</button>
+    <button className={`${tab === 'deck'?'active':''}`} onClick={() => setTab('deck')}>Deck {deckList.length}/60</button>
+    <button className={`${tab === 'extraDeck' ? 'active' : ''}`} onClick={() => setTab('extraDeck')}>Extra Deck {extraDeckList.length}/15</button>
         </div>
         <div className="chip-container">
             {chips}

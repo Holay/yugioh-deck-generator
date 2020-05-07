@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
-import { DeckListContext } from '../../contexts/DeckListContext'
-import './Card.scss'
+import { DeckListContext } from '../../contexts/DeckListContext';
+import Popup from "reactjs-popup";
+import './Card.scss';
 
 function Card({card, addCard}){
     const { reducedDeckList, reducedExtraDeckList } = useContext(DeckListContext)
@@ -10,13 +11,22 @@ function Card({card, addCard}){
         maxed = deckCard.count === 3;
     }
     return(
-        <div className="card" onClick={()=>addCard(card)}>
-            <img className={`${maxed?'maxed':''}`} src={card.card_images[0].image_url} alt={card.name}/>
+        <Popup trigger={<div className="card" onClick={() => addCard(card)}>
+            <img className={`${maxed ? 'maxed' : ''}`} src={card.card_images[0].image_url} alt={card.name} />
             <p>
                 {card.name}
             </p>
-        </div>
+        </div>}
+            position="right center"
+            on="hover"
+            arrow={false}
+            contentStyle={{background: 'none', border: 'none'}}
+        >
+
+            <img src={card.card_images[0].image_url} alt={card.name} />
+        </Popup>
     )
 }
 
 export default Card;
+

@@ -7,7 +7,9 @@ import FIRE from '../../attributes/FIRE.png';
 import WIND from '../../attributes/WIND.png';
 import TRAP from '../../attributes/TRAP.png';
 import SPELL from '../../attributes/SPELL.png';
+import Popup from "reactjs-popup";
 import './Chip.scss'
+
 
 const attributes = {
     DARK,
@@ -76,13 +78,26 @@ function Chip({ card, removeCard, type}){
     }, []);
 
     return(
-        <div className={`chip ${show}`} style={{background: color}} onClick={()=>removeCard(card, type)}>
-            <div className="chip-count">
-                {card.count}
-            </div>
-            <div className="chip-name">{card.name}</div>
-            <img className="chip-attribute" src={attribute} alt="attribute" />
-        </div>
+        <Popup
+            trigger={
+                <div className={`chip ${show}`} style={{ background: color }} onClick={() => removeCard(card, type)}>
+                    <div className="chip-count">
+                        {card.count}
+                    </div>
+                    <div className="chip-name">{card.name}</div>
+                    <img className="chip-attribute" src={attribute} alt="attribute" />
+                </div>
+            }
+            position="left center"
+            on="hover"
+            arrow={false}
+            contentStyle={{ background: 'none', border: 'none', paddingRight: '250px' }}
+        >
+            <img  src={card.card_images[0].image_url} alt={card.name} />
+
+        </Popup>
+        
     )
 }
 export default Chip;
+

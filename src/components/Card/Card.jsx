@@ -19,6 +19,7 @@ function Card({card, addCard}){
         </div>}
             position="right center"
             on="hover"
+            mouseEnterDelay={1000}
             arrow={false}
             contentStyle={{background: 'none', border: 'none'}}
         >

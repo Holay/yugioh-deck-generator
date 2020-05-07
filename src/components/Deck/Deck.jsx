@@ -16,6 +16,8 @@ function Deck() {
         <div className='deck-list'>
             <div className="deck-name-container">
                 <input type="text" name="deck-name" className="deck-name" placeholder="Deck Name" onChange={onChange} />
+                <button onClick={() => { downloadDecks(deckName) }} disabled={!ready} className={`btn draw-border ${ready ? 'ready' : ''}`} id="export-button"><i class="fas fa-download"></i></button>
+
             </div>
             <div className="tabs">
                 <button className={`${tab === 'deck' ? 'active' : ''}`} onClick={() => setTab('deck')}>Deck {deckList.length}/60</button>
@@ -24,7 +26,7 @@ function Deck() {
             <div className="chip-container">
                 {chips}
             </div>
-            <button onClick={() => { downloadDecks(deckName) }} disabled={!ready} className={`btn draw-border ${ready ? 'ready' : ''}`} id="export-button">Export to TTS</button>
+
         </div>)
 }
 

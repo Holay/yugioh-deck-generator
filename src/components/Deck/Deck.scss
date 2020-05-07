@@ -7,11 +7,15 @@
 
 .deck-name-container{
     padding: 5px;
+    height: 5%;
+    display: flex;
+    flex-direction: row;
 }
 
 .deck-name{ 
     border-radius: 10px;
     height: 40px;
+    width: 80%;
     font-size: 20px;
     padding: 0 10px;
     background: rgba(61, 78, 85, 0.68);
@@ -22,9 +26,9 @@
 }
 
 .chip-container{
-    padding: 20px;
-    height: 75%;
-    max-height: 75%;
+    padding: 0 10px;
+    height: 88%;
+    max-height: 88%;
     overflow-y: auto;
 }
 
@@ -49,9 +53,11 @@
 }
 
 .tabs{
+    height: 5%;
     display: flex;
     flex-direction: row;
     padding: 0 5px;
+    max-height: 6%;
 }
 
 .tabs button{
@@ -63,6 +69,9 @@
     background-color: rgba(97, 126, 141, 0.68);
     border-color: rgb(54, 99, 100);
     color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .tabs button.active {
@@ -70,12 +79,13 @@
 }
 
 #export-button{ 
-    margin-top: 15px;
+    width: 35px;
+    height: 80%;
+    margin: 5px;
     background: none;
     border: none;
-    padding: 10px;
     outline: none;
-    font: 700 20px 'Work Sans', sans-serif;
+    font: 700 15px 'Work Sans', sans-serif;
 }
 
 @mixin btn-border-drawing($color: #ccc, $hover: black, $width: 2px, $vertical: top, $horizontal: left, $duration: 0.25s) {

@@ -1,6 +1,6 @@
 html{
   user-select: none;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 html::-webkit-scrollbar-track

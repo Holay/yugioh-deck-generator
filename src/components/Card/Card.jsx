@@ -17,11 +17,11 @@ function Card({card, addCard}){
                 {card.name}
             </p>
         </div>}
-            position="right center"
             on="hover"
             mouseEnterDelay={1000}
             arrow={false}
             contentStyle={{background: 'none', border: 'none'}}
+            keepTooltipInside=".outlet"
         >
 
             <img src={card.card_images[0].image_url} alt={card.name} />

@@ -43,6 +43,9 @@ function Chip({ card, removeCard, type}){
         case 'Synchro Monster':
             color = "linear-gradient(90deg, rgb(2, 0, 36) 0%, rgb(225, 221, 218) 100%)"
             break;
+        case 'Synchro Tuner Monster':
+            color = "linear-gradient(90deg, rgb(2, 0, 36) 0%, rgb(225, 221, 218) 100%)"
+            break;
         case 'XYZ Monster':
             color = "linear-gradient(90deg, rgb(2, 0, 36) 0%, rgb(40, 44, 47) 100%)"
             break;

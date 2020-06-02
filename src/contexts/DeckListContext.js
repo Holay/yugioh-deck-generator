@@ -2,7 +2,7 @@ import React, { createContext, Component } from 'react';
 import { formatForTTS } from '../TTSfunctions'
 
 export const DeckListContext = createContext();
-const extraTypes = ['Synchro Monster', 'XYZ Monster', 'Fusion Monster', 'Link Monster', 'Ritual Monster']
+const extraTypes = ['Synchro Monster', 'XYZ Monster', 'Fusion Monster', 'Link Monster', 'Ritual Monster', 'Synchro Tuner Monster']
 export default class DeckListContextProvider extends Component {
     state = {
         deckList: [],
@@ -35,6 +35,7 @@ export default class DeckListContextProvider extends Component {
     }
 
     addCard(card) {
+        console.log(card)
         let { deckList, extraDeckList, reducedDeckList, reducedExtraDeckList } = this.state;
         if (
             (reducedDeckList.find(cardToFind => cardToFind.name === card.name) && reducedDeckList.find(cardToFind => cardToFind.name === card.name).count >= 3) 

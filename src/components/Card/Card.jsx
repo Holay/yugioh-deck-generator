@@ -24,7 +24,7 @@ function Card({card, addCard}){
             keepTooltipInside=".outlet"
         >
 
-            <img src={card.card_images[0].image_url} alt={card.name} />
+            <img src={card.card_images[0].image_url} alt={card.name} onClick={() => addCard(card)}/>
         </Popup>
     )
 }

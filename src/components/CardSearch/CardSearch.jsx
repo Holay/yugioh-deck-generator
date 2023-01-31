@@ -27,6 +27,7 @@ function CardSearch({ filterCards }) {
     }
     useEffect(()=>{
         filterCards(searchString,attributeFilters)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[attributeFilters])
 
     return(

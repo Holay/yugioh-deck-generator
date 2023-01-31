@@ -24,7 +24,7 @@ function header() {
             
             </div>
             <div className="made-by-me">
-                Yugioh deck maker for TTS by Mateo Penagos (<a href="https://steamcommunity.com/id/holay/" target="_blank" rel="noopener noreferrer">holay</a>)
+                Yugioh deck maker for TTS by (<a href="https://steamcommunity.com/id/holay/" target="_blank" rel="noopener noreferrer">holay</a>)
             </div>
         </div>
     )
